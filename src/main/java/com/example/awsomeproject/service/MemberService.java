@@ -2,14 +2,17 @@ package com.example.awsomeproject.service;
 
 import com.example.awsomeproject.domain.Member;
 import com.example.awsomeproject.repository.MemberRepository;
-import com.example.awsomeproject.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
